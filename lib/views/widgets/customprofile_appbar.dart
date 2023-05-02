@@ -13,7 +13,7 @@ class CustomProfileAppBar extends StatelessWidget {
       backgroundColor: Colors.white,
       elevation: 0,
       leading:  IconButton(onPressed: (){
-        Navigator.push(context, MaterialPageRoute(builder:( BuildContext context)=>  Navbar(),));
+        Navigator.push(context, MaterialPageRoute(builder:( BuildContext context)=>  const Navbar(),));
       }, icon: const Icon(Icons.arrow_back,size: 30,),color: kPrimaryColor,),
       centerTitle: true,
       title: const Text("My Profile",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),

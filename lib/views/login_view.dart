@@ -22,7 +22,7 @@ class LoginView extends StatelessWidget {
         children: [
           ClipPath(
             clipper: MyClipper(),
-            child: Container(
+            child: SizedBox(
               width: double.infinity,
               height: 50,
               child: Image.asset(
@@ -34,7 +34,7 @@ class LoginView extends StatelessWidget {
           Form(
             key: formkey,
             child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 20),
+              margin: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -78,7 +78,7 @@ class LoginView extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (BuildContext context) => Navbar(),
+                                builder: (BuildContext context) => const Navbar(),
                               ));
                         }
                       },
@@ -102,7 +102,7 @@ class LoginView extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (BuildContext context) => SignUpView(),
+                                builder: (BuildContext context) => const SignUpView(),
                               ));
                         },
                         child: const Text(

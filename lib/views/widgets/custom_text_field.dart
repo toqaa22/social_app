@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-   CustomTextField({required this.hintText,required this.title,required this.icon,this.onChanged});
+   CustomTextField({super.key, required this.hintText,required this.title,required this.icon,this.onChanged});
   String hintText;
   String title;
   Icon icon;
@@ -15,6 +15,7 @@ class CustomTextField extends StatelessWidget {
           return "Must not be Embty";
 
         }
+        return null;
       },
 
       decoration: InputDecoration(
@@ -23,7 +24,7 @@ class CustomTextField extends StatelessWidget {
         labelText: title,
         hintText: hintText,
         prefixIcon: icon,
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
       ),
       onChanged: onChanged,
 

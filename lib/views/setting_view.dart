@@ -15,7 +15,7 @@ class SettingView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading:  IconButton(onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder:( BuildContext context)=>  Navbar(),));
+          Navigator.push(context, MaterialPageRoute(builder:( BuildContext context)=>  const Navbar(),));
         }, icon: const Icon(Icons.arrow_back,size: 30,),color: kPrimaryColor,),
         backgroundColor: Colors.white,
         elevation: 0,

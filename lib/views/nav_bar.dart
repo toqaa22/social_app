@@ -7,6 +7,8 @@ import '../constants.dart';
 
 
 class Navbar extends StatefulWidget{
+  const Navbar({super.key});
+
   @override
   State<Navbar> createState()=> NavbarState();
 

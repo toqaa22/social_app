@@ -12,7 +12,7 @@ class StatusBar extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: 10,
             itemBuilder: (BuildContext context, int index) {
-              return  Container(
+              return  SizedBox(
                 height: 110,
                 width: 100,
                 child: Stack(

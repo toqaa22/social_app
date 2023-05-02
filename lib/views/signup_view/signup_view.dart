@@ -25,7 +25,7 @@ class SignUpView extends StatelessWidget {
               children: [
                 ClipPath(
                   clipper: MyClipper(),
-                  child: Container(
+                  child: SizedBox(
                     width: double.infinity,
                     height: 50,
                     child: Image.asset(
@@ -37,14 +37,14 @@ class SignUpView extends StatelessWidget {
                 Form(
                   key: cubit.formKey,
                   child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 20),
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         CustomTextField(
                           hintText: 'Enter Your Name',
                           title: "Name",
-                          icon: Icon(Icons.person),
+                          icon: const Icon(Icons.person),
                         ),
                         const SizedBox(
                           height: 30,
@@ -52,7 +52,7 @@ class SignUpView extends StatelessWidget {
                         CustomTextField(
                           hintText: 'Enter Your Email',
                           title: "email",
-                          icon: Icon(Icons.email_outlined),
+                          icon: const Icon(Icons.email_outlined),
                           onChanged: (data) {
                             cubit.email = data;
                           },
@@ -63,7 +63,7 @@ class SignUpView extends StatelessWidget {
                         CustomTextField(
                           hintText: 'Enter Your Password',
                           title: "Password",
-                          icon: Icon(Icons.lock),
+                          icon: const Icon(Icons.lock),
                           onChanged: (data) {
                             cubit.password = data;
                           },
@@ -74,7 +74,7 @@ class SignUpView extends StatelessWidget {
                         CustomTextField(
                           hintText: 'Enter Your Number',
                           title: "Number",
-                          icon: Icon(Icons.numbers),
+                          icon: const Icon(Icons.numbers),
                         ),
                         const SizedBox(
                           height: 30,
