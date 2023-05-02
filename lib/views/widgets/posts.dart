@@ -50,11 +50,11 @@ class Posts extends StatelessWidget {
 
               Row(
                 children: [
-                  IconButton(onPressed: (){}, icon: const Icon(Icons.remove_red_eye_rounded),color:  Colors.black),
+                  IconButton(onPressed: (){}, icon: const Icon(Icons.favorite_outlined),color:  Colors.black),
                   const SizedBox(width: 2),
                   const Text("245",style:  TextStyle(fontWeight: FontWeight.bold),),
                   const Spacer(),
-                  IconButton(onPressed: (){}, icon: const Icon(Icons.favorite_outlined),color:  Colors.black),
+                  IconButton(onPressed: (){}, icon: const Icon(Icons.favorite_outline),color:  Colors.black),
 
                   IconButton(onPressed: (){}, icon: const Icon(Icons.mode_comment_rounded),color: Colors.black),
 

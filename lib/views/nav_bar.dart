@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:socialapp/views/add_post_view.dart';
 import 'package:socialapp/views/home_screen_view.dart';
 import 'package:socialapp/views/setting_view.dart';
 
@@ -15,6 +16,7 @@ class NavbarState extends State<Navbar>{
   static var currentIndex =0;
   List<Widget> screens=[
     const HomeScreenView(),
+    const AddPostView(),
     const SettingView(),
 
   ];
@@ -33,6 +35,7 @@ class NavbarState extends State<Navbar>{
         },
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home,color: kPrimaryColor,), label: 'Feed'),
+          BottomNavigationBarItem(icon: Icon(Icons.add,color: kPrimaryColor,), label: 'Add Post'),
           BottomNavigationBarItem(icon: Icon(Icons.settings,color: kPrimaryColor,), label: 'Setting'),
 
         ],
