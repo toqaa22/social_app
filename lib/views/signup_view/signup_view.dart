@@ -98,7 +98,7 @@ class SignUpView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             const Text(
-                              "Aready Have Account ?",
+                              "Already Have Account ?",
                               style: TextStyle(color: Color(0xFFe6bab1)),
                             ),
                             const SizedBox(
