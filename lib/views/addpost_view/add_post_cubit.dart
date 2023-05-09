@@ -23,7 +23,7 @@ class AddPostCubit extends Cubit<AddPostState> {
   Future uploadImage() async {
     if (image == null) return;
 
-    FirebaseFirestore.instance.collection('users').doc(user!.id).collection('posts');
+    FirebaseFirestore.instance.collection('users').doc(user!.id).collection('postsImages');
 
     }
 
