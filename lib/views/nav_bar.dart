@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:socialapp/views/add_post_view.dart';
+import 'package:socialapp/views/addpost_view/add_post_view.dart';
 import 'package:socialapp/views/home_screen_view.dart';
 import 'package:socialapp/views/setting_view.dart';
 

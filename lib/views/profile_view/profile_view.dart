@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:socialapp/views/edit_view.dart';
 import 'package:socialapp/views/widgets/custom_button.dart';
@@ -5,7 +6,7 @@ import 'package:socialapp/views/widgets/customprofile_appbar.dart';
 import 'package:socialapp/views/widgets/profile_avatar.dart';
 import 'package:socialapp/views/widgets/profile_body.dart';
 
-import '../constants.dart';
+import '../../constants.dart';
 
 class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);
@@ -21,15 +22,20 @@ class Profile extends StatelessWidget {
             const SizedBox(
               height: 50,
             ),
-            ProfileAvatar(image: "assets/images/profile2.jpg"),
+            user ==null ?
+            ProfileAvatar(image: "assets/images/profile2.jpg"): CircleAvatar(
+              backgroundImage: NetworkImage(user!.profileImage.toString()),
+              radius: 100,
+
+            ),
             const SizedBox(
               height: 20,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  "Name",
+                 Text(
+                  user!.name.toString(),
                   style: TextStyle(fontSize: 25),
                 ),
                 IconButton(onPressed: (){
@@ -40,8 +46,8 @@ class Profile extends StatelessWidget {
             const SizedBox(
               height: 5,
             ),
-            const Text(
-              "Bio",
+             Text(
+              user!.bio.toString(),
               style: TextStyle(fontSize: 15),
             ),
             const SizedBox(

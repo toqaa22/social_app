@@ -16,11 +16,14 @@ class Posts extends StatelessWidget {
               color: Colors.grey[200],
               borderRadius: BorderRadius.circular(16),
             ),
-            padding: const EdgeInsets.only(left: 15,top: 15,right: 15),
+            padding: const EdgeInsets.only(left: 20,top: 15,right: 15),
             width: 400,
-            height: 350,
+            height: 400,
 
-            child:Column(children: [
+            child:Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+
               Row(children: [
                 CircleAvatar(
                   backgroundColor: Colors.grey[300],
@@ -41,12 +44,17 @@ class Posts extends StatelessWidget {
 
               ],),
               const SizedBox(height: 10,),
+
               SizedBox(
 
                 height: 220,
                 width: 350,
                 child: Image.asset("assets/images/pink2.jpg"),
               ),
+              SizedBox(height: 10,),
+              Text("Caption"),
+                SizedBox(height: 10,),
+
 
               Row(
                 children: [

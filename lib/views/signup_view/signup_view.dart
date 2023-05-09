@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:socialapp/constants.dart';
-import 'package:socialapp/views/login_view.dart';
+import 'package:socialapp/views/login_view/login_view.dart';
 import 'package:socialapp/views/signup_view/signup_cubit/signup_cubit.dart';
 import 'package:socialapp/views/widgets/custom_button.dart';
 import 'package:socialapp/views/widgets/custom_text_field.dart';
@@ -42,6 +42,9 @@ class SignUpView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         CustomTextField(
+                          onChanged: (data){
+                            cubit.name=data;
+                          },
                           hintText: 'Enter Your Name',
                           title: "Name",
                           icon: const Icon(Icons.person),
@@ -72,6 +75,9 @@ class SignUpView extends StatelessWidget {
                           height: 30,
                         ),
                         CustomTextField(
+                          onChanged: (data){
+                            cubit.phoneNo=data;
+                          },
                           hintText: 'Enter Your Number',
                           title: "Number",
                           icon: const Icon(Icons.numbers),
@@ -109,7 +115,7 @@ class SignUpView extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (BuildContext context) => LoginView(),
+                                      builder: (BuildContext context) => const LoginView(),
                                     ));
                               },
                               child: const Text(

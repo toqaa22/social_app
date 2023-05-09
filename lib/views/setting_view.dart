@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:socialapp/views/edit_view.dart';
-import 'package:socialapp/views/login_view.dart';
+import 'package:socialapp/views/login_view/login_view.dart';
 import 'package:socialapp/views/nav_bar.dart';
-import 'package:socialapp/views/profile_view.dart';
+import 'package:socialapp/views/profile_view/profile_view.dart';
 
 import '../constants.dart';
 

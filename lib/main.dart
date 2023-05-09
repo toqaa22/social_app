@@ -1,7 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:socialapp/firebase_options.dart';
-import 'package:socialapp/views/login_view.dart';
+import 'package:socialapp/splash/splash_view.dart';
+import 'package:socialapp/views/login_view/login_view.dart';
+
+
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +23,7 @@ class HomePage extends StatelessWidget {
 
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:  LoginView() ,
+      home:  SplashView() ,
     );
   }
 }

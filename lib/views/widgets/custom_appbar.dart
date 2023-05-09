@@ -11,8 +11,12 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        IconButton(onPressed: (){
-        }, icon: const Icon(Icons.person,size: 30,),color: kPrimaryColor,),
+        CircleAvatar(
+          backgroundImage: NetworkImage(user!.profileImage.toString()),
+          radius: 20,
+        ),
+        // IconButton(onPressed: (){
+        // }, icon: const Icon(Icons.person,size: 30,),color: kPrimaryColor,),
         const Spacer(),
         const Text("Feed",style:  TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
        const Spacer(),
