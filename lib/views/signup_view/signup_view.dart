@@ -42,8 +42,8 @@ class SignUpView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         CustomTextField(
-                          onChanged: (data){
-                            cubit.name=data;
+                          onChanged: (data) {
+                            cubit.name = data;
                           },
                           hintText: 'Enter Your Name',
                           title: "Name",
@@ -75,8 +75,8 @@ class SignUpView extends StatelessWidget {
                           height: 30,
                         ),
                         CustomTextField(
-                          onChanged: (data){
-                            cubit.phoneNo=data;
+                          onChanged: (data) {
+                            cubit.phoneNo = data;
                           },
                           hintText: 'Enter Your Number',
                           title: "Number",
@@ -115,7 +115,7 @@ class SignUpView extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (BuildContext context) => const LoginView(),
+                                      builder: (BuildContext context) => LoginView(),
                                     ));
                               },
                               child: const Text(

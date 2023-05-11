@@ -4,115 +4,116 @@ import 'package:socialapp/views/login_view/login_cubit.dart';
 import 'package:socialapp/views/signup_view/signup_view.dart';
 import 'package:socialapp/views/widgets/custom_button.dart';
 import 'package:socialapp/views/widgets/custom_text_field.dart';
+
 import '../../constants.dart';
 
-
 class LoginView extends StatelessWidget {
-  const LoginView({Key? key}) : super(key: key);
-
+  LoginView({Key? key}) : super(key: key);
+  TextEditingController emailcont = TextEditingController();
+  TextEditingController passcont = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-  create: (context) => LoginCubit(),
-  child: BlocConsumer<LoginCubit, LoginState>(
-    listener: (context, state) {
-      // TODO: implement listener
-    },
-    builder: (context, state) {
-      LoginCubit cubit =LoginCubit.get(context);
-      return Scaffold(
-        body: Stack(
-          fit: StackFit.expand,
-          children: [
-            ClipPath(
-              clipper: MyClipper(),
-              child: SizedBox(
-                width: double.infinity,
-                height: 50,
-                child: Image.asset(
-                  "assets/images/pinkleaveees.jpg",
-                  fit: BoxFit.fill,
-                ),
-              ),
-            ),
-            Form(
-              key: cubit.formkey,
-              child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CustomTextField(
-                      hintText: 'Enter Your Email',
-                      title: "email",
-                      icon: const Icon(Icons.email_outlined),
-                      onChanged: (data) {
-                        cubit.email = data;
-                      },
+        create: (context) => LoginCubit(),
+        child: BlocConsumer<LoginCubit, LoginState>(
+          listener: (context, state) {
+            // TODO: implement listener
+          },
+          builder: (context, state) {
+            LoginCubit cubit = LoginCubit.get(context);
+            return Scaffold(
+              body: Stack(
+                fit: StackFit.expand,
+                children: [
+                  ClipPath(
+                    clipper: MyClipper(),
+                    child: SizedBox(
+                      width: double.infinity,
+                      height: 50,
+                      child: Image.asset(
+                        "assets/images/pinkleaveees.jpg",
+                        fit: BoxFit.fill,
+                      ),
                     ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    CustomTextField(
-                      hintText: 'Enter Your Password',
-                      title: "Password",
-                      icon: const Icon(Icons.lock),
-                      onChanged: (data) {
-                        cubit.password = data;
-                      },
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    CustomButton(
-                        ontap: () async {
-                          if (cubit.formkey.currentState!.validate()) {
-                           cubit.login(context: context, email: cubit.email.toString(), password: cubit.password.toString());
-
-                          }
-                        },
-                        name: "LogIn",
-                        color: kPrimaryColor),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          "Don't Have Account ?",
-                          style: TextStyle(color: kPrimaryColor),
-                        ),
-                        const SizedBox(
-                          width: 3,
-                        ),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (BuildContext context) => const SignUpView(),
-                                ));
-                          },
-                          child: const Text(
-                            "Register",
-                            style: TextStyle(color: Colors.grey),
+                  ),
+                  Form(
+                    key: cubit.formkey,
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CustomTextField(
+                            controller: emailcont,
+                            hintText: 'Enter Your Email',
+                            title: "email",
+                            icon: const Icon(Icons.email_outlined),
+                            onChanged: (data) {
+                              cubit.email = data;
+                            },
                           ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          CustomTextField(
+                            controller: passcont,
+                            hintText: 'Enter Your Password',
+                            title: "Password",
+                            icon: const Icon(Icons.lock),
+                            onChanged: (data) {
+                              cubit.password = data;
+                            },
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          CustomButton(
+                              ontap: () async {
+                                if (cubit.formkey.currentState!.validate()) {
+                                  cubit.login(context: context, email: cubit.email.toString(), password: cubit.password.toString());
+                                }
+                              },
+                              name: "LogIn",
+                              color: kPrimaryColor),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Text(
+                                "Don't Have Account ?",
+                                style: TextStyle(color: kPrimaryColor),
+                              ),
+                              const SizedBox(
+                                width: 3,
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (BuildContext context) => const SignUpView(),
+                                      ));
+                                },
+                                child: const Text(
+                                  "Register",
+                                  style: TextStyle(color: Colors.grey),
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ),
-          ],
-        ),
-      );
-    },
-  )
-);
+            );
+          },
+        ));
   }
 }
 
