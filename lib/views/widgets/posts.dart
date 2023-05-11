@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class Posts extends StatelessWidget {
-   Posts({Key? key,required this.imageUrl,required this.caption,required this.time,required this.name,required this.profileimage}) : super(key: key);
+   Posts({Key? key,required this.imageUrl,required this.caption,required this.time,required this.name,required this.profileImage}) : super(key: key);
    String time;
    String caption;
    String imageUrl;
    String name;
-   String profileimage;
+   String profileImage;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class Posts extends StatelessWidget {
             children: [
               CircleAvatar(
                 backgroundColor: Colors.grey[300],
-                child: Image.network(profileimage),
+                child: Image.network(profileImage),
               ),
               
               Column(

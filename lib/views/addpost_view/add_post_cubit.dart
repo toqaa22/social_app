@@ -36,7 +36,7 @@ class AddPostCubit extends Cubit<AddPostState> {
        caption: caption,
        time: time,
      name: user!.name,
-     profileimage: user!.profileImage,
+     profileImage: user!.profileImage,
 
    );
    FirebaseFirestore.instance.collection('user').doc(user!.id).collection('posts').add(post!.toMap()).then((value){

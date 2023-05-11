@@ -33,7 +33,7 @@ class HomeScreenBody extends StatelessWidget {
                       itemBuilder: (BuildContext context, int index) {
                         return Posts(
                           name: cubit.posts[index].name.toString(),
-                          profileimage: cubit.posts[index].profileimage.toString(),
+                          profileImage: cubit.posts[index].profileImage.toString(),
                           caption: cubit.posts[index].caption.toString(),
                           time: cubit.posts[index].time.toString(),
                           imageUrl: cubit.posts[index].imageUrl.toString(),

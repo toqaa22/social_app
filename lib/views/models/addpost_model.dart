@@ -2,17 +2,17 @@ class Postmodel {
   String? imageUrl;
   String? time;
   String? caption;
-  String? profileimage;
+  String? profileImage;
   String? name;
 
-  Postmodel({required this.imageUrl, required this.caption, required this.time, this.name, this.profileimage});
+  Postmodel({required this.imageUrl, required this.caption, required this.time, this.name, this.profileImage});
 
   Postmodel.fromJson(Map<String, dynamic>? json) {
     imageUrl = json!['imageUrl'];
     time = json['time'];
     caption = json['caption'];
     name = json['name'];
-    profileimage = json['profileImage'];
+    profileImage = json['profileImage'];
   }
 
   Map<String, dynamic> toMap() {
@@ -21,7 +21,7 @@ class Postmodel {
       'time': time,
       'caption': caption,
       'name': name,
-      'profileimage': profileimage,
+      'profileImage': profileImage,
     };
   }
 }
