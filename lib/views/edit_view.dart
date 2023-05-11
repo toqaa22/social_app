@@ -3,12 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:socialapp/views/profile_view/profile_cubit.dart';
 import 'package:socialapp/views/profile_view/profile_view.dart';
 import 'package:socialapp/views/widgets/custom_button.dart';
+import 'package:socialapp/views/widgets/custom_text_field.dart';
 import 'package:socialapp/views/widgets/profile_avatar.dart';
-
 import '../constants.dart';
+
 
 class EditView extends StatelessWidget {
   const EditView({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -34,17 +36,20 @@ class EditView extends StatelessWidget {
           centerTitle: true,
           title: const Text(
             'Edit',
-            style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
         body: BlocProvider(
             create: (context) => ProfileCubit(),
-            child: BlocConsumer<ProfileCubit, ProfileState>(listener: (context, state) {
+            child: BlocConsumer<ProfileCubit, ProfileState>(
+                listener: (context, state) {
               // TODO: implement listener
             }, builder: (context, state) {
-              ProfileCubit cubit = ProfileCubit.get(context);
-              return SingleChildScrollView(
-                child: Form(
+              ProfileCubit cubit =ProfileCubit.get(context);
+              return ListView(
+                children: [
+                  Form(
                   key: formkey,
                   child: Center(
                     child: Column(
@@ -55,7 +60,8 @@ class EditView extends StatelessWidget {
                         user!.profileImage!.isEmpty
                             ? ProfileAvatar(image: "assets/images/profile2.jpg")
                             : CircleAvatar(
-                                backgroundImage: NetworkImage(user!.profileImage.toString()),
+                                backgroundImage:
+                                    NetworkImage(user!.profileImage.toString()),
                                 radius: 100,
                               ),
                         const SizedBox(
@@ -68,7 +74,7 @@ class EditView extends StatelessWidget {
                         const SizedBox(
                           height: 15,
                         ),
-                        Text(
+                         Text(
                           user!.bio.toString(),
                           style: TextStyle(fontSize: 15),
                         ),
@@ -96,7 +102,7 @@ class EditView extends StatelessWidget {
                           height: 15,
                         ),
                         CustomButton(
-                          ontap: () {
+                          ontap: (){
                             cubit.showTextEditBio(context);
                           },
                           name: "Edit Bio",
@@ -105,7 +111,7 @@ class EditView extends StatelessWidget {
                       ],
                     ),
                   ),
-                ),
+                ),]
               );
             })),
       ),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:socialapp/views/models/user_model.dart';
 
+
 import '../../login_view/login_view.dart';
 import '../../widgets/show_snack_bar.dart';
 
@@ -27,23 +28,22 @@ class SignupCubit extends Cubit<SignupState> {
     required context,
   }) async {
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password).then((value) async {
-        user = UserModel(name, value.user!.uid, phoneNo, '', '');
-        await FirebaseFirestore.instance
-            .collection('user')
-            .doc(value.user!.uid)
-            .set(
-              user!.toMap(),
-            )
-            .then((value) {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: email, password: password).then((value)async {
+        user = UserModel(name, value.user!.uid, phoneNo,'','',null);
+        await FirebaseFirestore.instance.collection('user').doc(value.user!.uid).set(
+          user!.toMap(),
+        ).then((value) {
           showSnackBar(context, "Email Created Successfuly");
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (BuildContext context) => LoginView(),
+                builder: (BuildContext context) => const LoginView(),
               ));
+
         });
-      });
+      }
+      );
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         showSnackBar(context, "The password provided is too weak.");
@@ -70,5 +70,6 @@ class SignupCubit extends Cubit<SignupState> {
     } catch (e) {
       print(e);
     }
+
   }
 }
