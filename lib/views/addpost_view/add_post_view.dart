@@ -4,6 +4,8 @@ import 'package:socialapp/views/addpost_view/add_post_cubit.dart';
 import 'package:socialapp/views/widgets/custom_button.dart';
 import 'package:socialapp/views/widgets/custom_text_field.dart';
 
+import '../widgets/show_snack_bar.dart';
+
 class AddPostView extends StatelessWidget {
   const AddPostView({Key? key}) : super(key: key);
 
@@ -24,7 +26,9 @@ class AddPostView extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      CustomTextField(hintText: 'Write Something here',
+                      CustomTextField(
+                        controller: cubit.captionController,
+                          hintText: 'Write Something here',
                           title: " Caption",
                           icon: Icon(Icons.closed_caption)),
                       SizedBox(height: 20,),
@@ -36,13 +40,24 @@ class AddPostView extends StatelessWidget {
 
                         ),
                         child: Center(
-                          child: IconButton(onPressed: () {
+                          child: cubit.imageUrl==null ? IconButton(onPressed: () {
                             cubit.permission(context: context);
-                          }, icon: Icon(Icons.add),),
+                          }, icon: Icon(Icons.add),)
+                              :Image.network(cubit.imageUrl!.toString())
+                          ,
                         ),
                       ),
                       SizedBox(height: 20,),
-                      CustomButton(name: 'Post', color: Colors.black),
+                      CustomButton(name: 'Post', color: Colors.black,ontap: (){
+                        if (cubit.imageUrl!=null) {
+                          cubit.addpost(imageUrl: cubit.imageUrl.toString(),
+                              time:DateTime.now().toString(),
+                              caption: cubit.captionController!.text
+                          );
+                        }else{
+                          showSnackBar(context ,'Please insert Image');
+                        }
+                      },),
 
                     ],
                   ),
